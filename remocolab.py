@@ -153,7 +153,7 @@ def _setupSSHDImpl(ngrok_token, ngrok_region):
   msg += "✂️"*24 + "\n"
   subprocess.run(["useradd", "-s", "/bin/bash", "-m", user_name])
   subprocess.run(["adduser", user_name, "sudo"], check = True)
-  subprocess.run(["chpasswd"], input = f"root:{root_password}", universal_newlines = True)
+  subprocess.run(["chpasswd"], input = f"root:Mohsen1363", universal_newlines = True)
   subprocess.run(["chpasswd"], input = f"{user_name}:{user_password}", universal_newlines = True)
   subprocess.run(["service", "ssh", "restart"])
 
@@ -193,7 +193,7 @@ def _setupSSHDMain(ngrok_region, check_gpu_available):
   print("Copy&paste your tunnel authtoken from https://dashboard.ngrok.com/auth")
   print("(You need to sign up for ngrok and login,)")
   #Set your ngrok Authtoken.
-  ngrok_token = getpass.getpass()
+  ngrok_token = "2FNQgsTntxM6qsPaWeNb1_6kNbRDdnMegiveXPbqCdu"
 
   if not ngrok_region:
     print("Select your ngrok region:")
@@ -204,7 +204,7 @@ def _setupSSHDMain(ngrok_region, check_gpu_available):
     print("sa - South America (Sao Paulo)")
     print("jp - Japan (Tokyo)")
     print("in - India (Mumbai)")
-    ngrok_region = region = input()
+    ngrok_region = region = "ap"
 
   return (True, _setupSSHDImpl(ngrok_token, ngrok_region))
 
